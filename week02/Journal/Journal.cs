@@ -20,16 +20,21 @@ public class Journal
     }
     public void SaveToFile(string file)
     {
-        using (StreamWriter outputFile = new StreamWriter(file))
+        using (StreamWriter outputFile = new StreamWriter(file, true))
         {
+            
             for (int i = 0; i < _entries.Count; i++)
             {
                 outputFile.WriteLine($"{_entries[i]._date}|{_entries[i]._promptText}|{_entries[i]._entryText}");
             }
+
         }
+        _entries.Clear();
+
     }
     public void LoadFromFile(string file)
     {
+        _entries.Clear();
         string[] lines = System.IO.File.ReadAllLines(file);
         Console.WriteLine("");
         foreach (string line in lines)
@@ -37,15 +42,17 @@ public class Journal
             Entry entry = new Entry();
             
             string[]parts = line.Split("|");
-            Console.WriteLine($"{parts[0]}: {parts[1]}");
-            Console.WriteLine($"{parts[2]}");
+            // Console.WriteLine($"{parts[0]}: {parts[1]}");
+            // Console.WriteLine($"{parts[2]}");
             
             entry._date = parts[0];
             entry._promptText = parts[1];
             entry._entryText = parts[2];
             AddEntry(entry);
         }
+        DisplayAll();
         Console.WriteLine("");
+        _entries.Clear();
         
     }
 }
