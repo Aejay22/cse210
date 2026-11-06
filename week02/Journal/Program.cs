@@ -2,6 +2,7 @@ using System;
 using System.Formats.Asn1;
 using System.Reflection.Metadata;
 
+// This program can append to a file instead of ovewriting the data in that file.
 class Program
 {
     static void Main(string[] args)
