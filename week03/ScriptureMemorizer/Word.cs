@@ -5,8 +5,7 @@ public class Word
     private bool _isHidden;
     public Word(string text)
     {
-        _text = text;
-        _isHidden = false;  
+        _text = text;  
     }
     public void Hide()
     {

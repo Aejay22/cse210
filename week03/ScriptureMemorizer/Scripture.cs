@@ -12,6 +12,7 @@ public class Scripture
        foreach (string word in words)
         {
             Word word1 = new Word(word);
+            word1.Show();
             _words.Add(word1);
 
         }

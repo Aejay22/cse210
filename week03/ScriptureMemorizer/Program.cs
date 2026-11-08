@@ -21,7 +21,10 @@ class Program
 
         Console.WriteLine(scripture1.GetDisplayText());
         Console.Write("Press enter to continue or type 'quit' to finish");
-        response = Console.ReadLine();        
+        
+        
+        response = Console.ReadLine(); 
+        Console.Clear();       
         while(response.ToLower() != "quit" && !scripture1.IsCompletelyHidden())
         {
             Random random = new Random();
@@ -30,6 +33,15 @@ class Program
             Console.WriteLine(scripture1.GetDisplayText());
             Console.Write("Press enter to continue or type 'quit' to finish: ");
             response = Console.ReadLine();
+            if (response.ToLower() != "quit" && !scripture1.IsCompletelyHidden())
+            {
+                Console.Clear(); 
+            }
+            else
+            {
+                break;      
+            }
+            
 
         }
     }
