@@ -10,6 +10,7 @@ public class MemoryVerse
     private int _verse;
     private int _endVerse;
     private string _text;
+    private Reference reference1;
     private List<string[]> _allVerses = new List<string[]>();
     public void LoadFromFile()
     {
@@ -50,7 +51,18 @@ public class MemoryVerse
 
     public Scripture ReturnScripture()
     {
-        Reference reference1 = new Reference(_book, _chapter, _verse, _endVerse);
+        if (_endVerse != 0)
+        {
+            reference1 = new Reference(_book, _chapter, _verse, _endVerse);
+            
+        }
+        else
+        {
+            reference1 = new Reference(_book, _chapter, _verse);
+            
+        }
+        
+        
         Scripture scripture1 = new Scripture(reference1, _text);
         return scripture1;
     }

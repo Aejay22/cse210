@@ -12,7 +12,7 @@ class Program
         memoryVerse.LoadFromFile();
         memoryVerse.GetMemoryVerse();
         
-        Console.Write("Please select the scripture you want to memorize ");
+        Console.Write("Please select the scripture you want to memorize: ");
         
         string response1 = Console.ReadLine();
         memoryVerse.Answer(int.Parse(response1));
@@ -28,7 +28,7 @@ class Program
             int number = random.Next(1,4);
             scripture1.HideRandomWords(number);
             Console.WriteLine(scripture1.GetDisplayText());
-            Console.Write("Press enter to continue or type 'quit' to finish");
+            Console.Write("Press enter to continue or type 'quit' to finish: ");
             response = Console.ReadLine();
 
         }
