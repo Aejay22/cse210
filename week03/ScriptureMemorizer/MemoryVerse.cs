@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.IO;
@@ -12,14 +13,11 @@ public class MemoryVerse
     private string _text;
     private Reference reference1;
     private List<string[]> _allVerses = new List<string[]>();
-    public void LoadFromFile()
+    public void LoadFromFile(string[] parts)
     {
-        string[]lines = File.ReadAllLines("memoryVerse.txt");
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split("||");
-            _allVerses.Add(parts);
-        }
+        
+        _allVerses.Add(parts);
+        
     } 
     public void GetMemoryVerse()
     {
