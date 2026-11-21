@@ -1,18 +1,22 @@
-using System;
+
 public class Comment
 {
     private string _commenter;
     private string _comment;
+
     public Comment(string commenter, string comment)
     {
-        _comment = comment;
         _commenter = commenter;
+        _comment = comment;
     }
-    public List<string> ReturnComment()
+
+    public string GetCommenter()
     {
-        List<string> comment = new List<string>();
-        comment.Add(_commenter);
-        comment.Add(_comment);
-        return comment;
+        return _commenter;
+    }
+
+    public string GetComment()
+    {
+        return _comment;
     }
 }
