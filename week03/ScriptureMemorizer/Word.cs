@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 public class Word
 {    
     private string _text;
@@ -23,7 +24,19 @@ public class Word
     {
         if (_isHidden)
         {
-            return "________";
+            string hiddenCount = "";
+            for (int i = 0; i < _text.Length; i++)
+            {
+                if(Regex.IsMatch(_text[i].ToString(), @"\w"))
+                {
+                    hiddenCount += "_";
+                }
+                else
+                {
+                    hiddenCount += _text[i];
+                }
+            }
+            return hiddenCount;
         }
         else
         {
